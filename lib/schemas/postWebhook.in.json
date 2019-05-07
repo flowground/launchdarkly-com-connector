@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "The name of the webhook.",
+                    "example": "Example hook",
+                    "type": "string"
+                },
+                "on": {
+                    "description": "Whether this webhook is enabled or not.",
+                    "example": true,
+                    "type": "boolean"
+                },
+                "secret": {
+                    "description": "If sign is true, and the secret attribute is omitted, LaunchDarkly will automatically generate a secret for you.",
+                    "example": "<password>",
+                    "type": "string"
+                },
+                "sign": {
+                    "description": "If sign is false, the webhook will not include a signature header, and the secret can be omitted.",
+                    "type": "boolean"
+                },
+                "url": {
+                    "description": "The URL of the remote webhook.",
+                    "example": "https://example.com/example",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "url",
+                "sign",
+                "on"
+            ],
+            "type": "object"
+        }
+    }
+}

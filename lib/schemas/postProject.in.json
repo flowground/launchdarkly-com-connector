@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "key": {
+                    "example": "new-project",
+                    "type": "string"
+                },
+                "name": {
+                    "example": "New Project",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "key"
+            ],
+            "type": "object"
+        }
+    }
+}

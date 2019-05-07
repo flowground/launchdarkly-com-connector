@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "before": {
+            "required": false,
+            "type": "number"
+        },
+        "after": {
+            "required": false,
+            "type": "number",
+            "format": "int64"
+        },
+        "q": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "number"
+        },
+        "spec": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

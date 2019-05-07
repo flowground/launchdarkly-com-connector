@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "userKey": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

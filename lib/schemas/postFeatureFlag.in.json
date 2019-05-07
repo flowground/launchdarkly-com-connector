@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "includeInSnippet": {
+                    "description": "Whether or not this flag should be made available to the client-side JavaScript SDK.",
+                    "type": "boolean"
+                },
+                "key": {
+                    "description": "A unique key that will be used to reference the flag in your code.",
+                    "example": "new-test-flag",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-friendly name for the feature flag. Remember to note if this flag is intended to be temporary or permanent.",
+                    "example": "new test flag",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Tags for the feature flag.",
+                    "items": {
+                        "example": "[]",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "temporary": {
+                    "description": "Whether or not the flag is a temporary flag.",
+                    "type": "boolean"
+                },
+                "variations": {
+                    "description": "An array of possible variations for the flag.",
+                    "items": {
+                        "properties": {
+                            "description": {
+                                "example": "The true variation",
+                                "type": "string"
+                            },
+                            "name": {
+                                "example": "True",
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "name",
+                "key",
+                "variations"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "customRoleKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "op": {
+                        "example": "replace",
+                        "type": "string"
+                    },
+                    "path": {
+                        "example": "/on",
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "op",
+                    "path",
+                    "value"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

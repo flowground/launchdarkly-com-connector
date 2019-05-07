@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "customRoles": {
+                        "items": {
+                            "description": "The 20-hexdigit id or the key for a custom role.",
+                            "example": "revenue-team",
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "email": {
+                        "example": "exampleuser@email.com",
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "example": "Bob",
+                        "type": "string"
+                    },
+                    "inlineRole": {
+                        "items": {
+                            "properties": {
+                                "actions": {
+                                    "items": {
+                                        "description": "An action to perform on a resource.",
+                                        "example": "updateOn",
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "effect": {
+                                    "enum": [
+                                        "allow",
+                                        "deny"
+                                    ],
+                                    "type": "string"
+                                },
+                                "notactions": {
+                                    "description": "Targeted actions will be those actions NOT in this list. The \"actions\" field must be empty to use this field.",
+                                    "items": {
+                                        "description": "An action to perform on a resource.",
+                                        "example": "updateOn",
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "notresources": {
+                                    "description": "Targeted resource will be those resources NOT in this list. The \"resources`\" field must be empty to use this field.",
+                                    "items": {
+                                        "description": "A resource specifier string",
+                                        "example": "proj/*:env/*:flag/my-flag",
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "resources": {
+                                    "items": {
+                                        "description": "A resource specifier string",
+                                        "example": "proj/*:env/*:flag/my-flag",
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "lastName": {
+                        "example": "Loblaw",
+                        "type": "string"
+                    },
+                    "role": {
+                        "enum": [
+                            "writer",
+                            "reader",
+                            "admin",
+                            "owner"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "email"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

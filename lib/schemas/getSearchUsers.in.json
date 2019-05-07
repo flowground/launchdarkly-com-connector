@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "q": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "after": {
+            "required": false,
+            "type": "number",
+            "format": "int64"
+        }
+    }
+}

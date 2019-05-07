@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "h": {
+            "required": false,
+            "type": "string"
+        },
+        "scrollId": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

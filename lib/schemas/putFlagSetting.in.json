@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "userKey": {
+            "required": true,
+            "type": "string"
+        },
+        "featureFlagKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "setting": {
+                    "description": "The variation value to set for the user. Must match the variation type of the flag.\n",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

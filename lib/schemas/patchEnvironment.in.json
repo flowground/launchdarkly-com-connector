@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "op": {
+                        "example": "replace",
+                        "type": "string"
+                    },
+                    "path": {
+                        "example": "/on",
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "op",
+                    "path",
+                    "value"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

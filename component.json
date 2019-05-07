@@ -1,0 +1,776 @@
+{
+    "title": "LaunchDarkly",
+    "description": "Build custom integrations with the LaunchDarkly REST API",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/launchdarkly.com/2.0.5/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://app.launchdarkly.com/api/v2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Token": {
+                "label": "Authorization (Token)",
+                "viewClass": "TextFieldView",
+                "note": "https://app.launchdarkly.com/settings#/tokens"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getRoot": {
+            "main": "./lib/actions/getRoot.js",
+            "title": "You can issue a GET request to the root resource to find all of the resource categories supported by the API.",
+            "description": "You can issue a GET request to the root resource to find all of the resource categories supported by the API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRoot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAuditLogEntries": {
+            "main": "./lib/actions/getAuditLogEntries.js",
+            "title": "Get a list of all audit log entries. The query parameters allow you to restrict the returned results by date ranges, resource specifiers, or a full-text search query.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAuditLogEntries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAuditLogEntry": {
+            "main": "./lib/actions/getAuditLogEntry.js",
+            "title": "Use this endpoint to fetch a single audit log entry by its resouce ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAuditLogEntry.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFeatureFlagStatuses": {
+            "main": "./lib/actions/getFeatureFlagStatuses.js",
+            "title": "Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFeatureFlagStatuses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFeatureFlagStatus": {
+            "main": "./lib/actions/getFeatureFlagStatus.js",
+            "title": "Get the status for a particular feature flag.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFeatureFlagStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFeatureFlags": {
+            "main": "./lib/actions/getFeatureFlags.js",
+            "title": "Get a list of all features in the given project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFeatureFlags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postFeatureFlag": {
+            "main": "./lib/actions/postFeatureFlag.js",
+            "title": "Creates a new feature flag.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postFeatureFlag.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteFeatureFlag": {
+            "main": "./lib/actions/deleteFeatureFlag.js",
+            "title": "Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteFeatureFlag.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFeatureFlag": {
+            "main": "./lib/actions/getFeatureFlag.js",
+            "title": "Get a single feature flag by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFeatureFlag.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchFeatureFlag": {
+            "main": "./lib/actions/patchFeatureFlag.js",
+            "title": "Perform a partial update to a feature.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchFeatureFlag.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMembers": {
+            "main": "./lib/actions/getMembers.js",
+            "title": "Returns a list of all members in the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postMembers": {
+            "main": "./lib/actions/postMembers.js",
+            "title": "Invite new members.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteMember": {
+            "main": "./lib/actions/deleteMember.js",
+            "title": "Delete a team member by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteMember.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMember": {
+            "main": "./lib/actions/getMember.js",
+            "title": "Get a single team member by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMember.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchMember": {
+            "main": "./lib/actions/patchMember.js",
+            "title": "Modify a team member by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchMember.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProjects": {
+            "main": "./lib/actions/getProjects.js",
+            "title": "Returns a list of all projects in the account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postProject": {
+            "main": "./lib/actions/postProject.js",
+            "title": "Create a new project with the given key and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postProject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteProject": {
+            "main": "./lib/actions/deleteProject.js",
+            "title": "Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteProject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProject": {
+            "main": "./lib/actions/getProject.js",
+            "title": "Fetch a single project by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchProject": {
+            "main": "./lib/actions/patchProject.js",
+            "title": "Modify a project by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchProject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postEnvironment": {
+            "main": "./lib/actions/postEnvironment.js",
+            "title": "Create a new environment in a specified project with a given name, key, and swatch color.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteEnvironment": {
+            "main": "./lib/actions/deleteEnvironment.js",
+            "title": "Delete an environment in a specific project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getEnvironment": {
+            "main": "./lib/actions/getEnvironment.js",
+            "title": "Get an environment given a project and key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchEnvironment": {
+            "main": "./lib/actions/patchEnvironment.js",
+            "title": "Modify an environment by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCustomRoles": {
+            "main": "./lib/actions/getCustomRoles.js",
+            "title": "Return a complete list of custom roles.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCustomRoles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postCustomRole": {
+            "main": "./lib/actions/postCustomRole.js",
+            "title": "Create a new custom role.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postCustomRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteCustomRole": {
+            "main": "./lib/actions/deleteCustomRole.js",
+            "title": "Delete a custom role by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteCustomRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCustomRole": {
+            "main": "./lib/actions/getCustomRole.js",
+            "title": "Get one custom role by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCustomRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchCustomRole": {
+            "main": "./lib/actions/patchCustomRole.js",
+            "title": "Modify a custom role by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchCustomRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserSegments": {
+            "main": "./lib/actions/getUserSegments.js",
+            "title": "Get a list of all user segments in the given project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserSegments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postUserSegment": {
+            "main": "./lib/actions/postUserSegment.js",
+            "title": "Creates a new user segment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postUserSegment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteUserSegment": {
+            "main": "./lib/actions/deleteUserSegment.js",
+            "title": "Delete a user segment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteUserSegment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserSegment": {
+            "main": "./lib/actions/getUserSegment.js",
+            "title": "Get a single user segment by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserSegment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchUserSegment": {
+            "main": "./lib/actions/patchUserSegment.js",
+            "title": "Perform a partial update to a user segment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchUserSegment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSearchUsers": {
+            "main": "./lib/actions/getSearchUsers.js",
+            "title": "Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSearchUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUsers": {
+            "main": "./lib/actions/getUsers.js",
+            "title": "List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteUser": {
+            "main": "./lib/actions/deleteUser.js",
+            "title": "Delete a user by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUser": {
+            "main": "./lib/actions/getUser.js",
+            "title": "Get a user by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserFlagSettings": {
+            "main": "./lib/actions/getUserFlagSettings.js",
+            "title": "Fetch a single flag setting for a user by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserFlagSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserFlagSetting": {
+            "main": "./lib/actions/getUserFlagSetting.js",
+            "title": "Fetch a single flag setting for a user by key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserFlagSetting.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "putFlagSetting": {
+            "main": "./lib/actions/putFlagSetting.js",
+            "title": "Specifically enable or disable a feature flag for a user based on their key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/putFlagSetting.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getWebhooks": {
+            "main": "./lib/actions/getWebhooks.js",
+            "title": "Fetch a list of all webhooks.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getWebhooks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postWebhook": {
+            "main": "./lib/actions/postWebhook.js",
+            "title": "Create a webhook.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postWebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteWebhook": {
+            "main": "./lib/actions/deleteWebhook.js",
+            "title": "Delete a webhook by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteWebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getWebhook": {
+            "main": "./lib/actions/getWebhook.js",
+            "title": "Get a webhook by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getWebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patchWebhook": {
+            "main": "./lib/actions/patchWebhook.js",
+            "title": "Modify a webhook by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patchWebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "color": {
+                    "description": "A color swatch (as an RGB hex value with no leading '#', e.g. C8C8C8).",
+                    "example": "417505",
+                    "type": "string"
+                },
+                "defaultTtl": {
+                    "description": "The default TTL for the new environment.",
+                    "example": 0,
+                    "type": "number"
+                },
+                "key": {
+                    "description": "A project-unique key for the new environment.",
+                    "example": "dev",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the new environment.",
+                    "example": "Development",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "key",
+                "color"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "customRoleKey": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

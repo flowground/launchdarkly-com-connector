@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "Description of the custom role.",
+                    "example": "Description of revenue team role here",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "The 20-hexdigit id or the key for a custom role.",
+                    "example": "revenue-team",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the custom role.",
+                    "example": "revenue team",
+                    "type": "string"
+                },
+                "policy": {
+                    "items": {
+                        "properties": {
+                            "actions": {
+                                "items": {
+                                    "description": "An action to perform on a resource.",
+                                    "example": "updateOn",
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "effect": {
+                                "description": "Effect of the policy - allow or deny.",
+                                "example": "deny",
+                                "type": "string"
+                            },
+                            "resources": {
+                                "items": {
+                                    "description": "A resource specifier string",
+                                    "example": "proj/*:env/*:flag/my-flag",
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "name",
+                "key",
+                "policy"
+            ],
+            "type": "object"
+        }
+    }
+}

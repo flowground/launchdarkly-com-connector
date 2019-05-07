@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "A description for the user segment.",
+                    "example": "Users in this segment will have access to beta features.",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "A unique key that will be used to reference the user segment in feature flags.",
+                    "example": "new-segment",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-friendly name for the user segment.",
+                    "example": "new segment",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Tags for the user segment.",
+                    "items": {
+                        "example": "[]",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "name",
+                "key"
+            ],
+            "type": "object"
+        }
+    }
+}
